@@ -11,6 +11,9 @@ DEBUG = 1
 # optimization
 OPT = -Og
 
+# warrnings
+WARNING =  -Werror -Wall -Weffc++ -Wextra -Wsign-conversion
+
 CXX = g++
 SZ = size
 
@@ -25,12 +28,13 @@ SZ = size
 BUILD_DIR = build
 
 C_SOURCES =  \
-main.cpp
+main.cpp \
+test.cpp
 
 C_INCLUDES =  \
 -IInc
 
-CXXFLAGS = $(C_INCLUDES) $(OPT) -fdiagnostics-color=always
+CXXFLAGS = $(C_INCLUDES) $(OPT) $(WARNING) -std=c++17 -fdiagnostics-color=always
 
 ifeq ($(DEBUG), 1)
 CXXFLAGS += -g
@@ -63,6 +67,9 @@ $(BUILD_DIR):
 #######################################
 clean:
 	-rm -fR $(BUILD_DIR)
+
+echo: $(OBJECTS)
+	echo $(OBJECTS)
 
 #######################################
 # dependencies

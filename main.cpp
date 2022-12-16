@@ -5,6 +5,7 @@ using namespace std;
 
 int main()
 {
-    cout << "TEST: " << TEST << std::endl;
+    uint16_t a {1};
+    cout << "TEST: " << TEST << " a: " << a << std::endl;
     return 0;
 }
